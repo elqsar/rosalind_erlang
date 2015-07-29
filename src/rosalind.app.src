@@ -1,0 +1,14 @@
+{application, rosalind,
+ [
+  {description, "An Erlang library"},
+  {vsn, "1"},
+  {modules, [
+             rosalind
+            ]},
+  {registered, []},
+  {applications, [
+                  kernel,
+                  stdlib
+                 ]},
+  {env, []}
+ ]}.
