@@ -27,3 +27,7 @@ quick_test() ->
 dna_to_rna_test() ->
   ?assertEqual(rosalind:dna_to_rna("GATGGAACTTGACTACGTAAATT"), "GAUGGAACUUGACUACGUAAAUU"),
   ?assertEqual(rosalind:dna_to_rna_opt("GATGGAACTTGACTACGTAAATT"), "GAUGGAACUUGACUACGUAAAUU").
+
+secondary_and_terteriary_test() ->
+  ?assertEqual(rosalind:complement("AAAACCCGGT"), "ACCGGGTTTT"),
+  ?assertEqual(rosalind:complement("GTCA"), "TGAC").

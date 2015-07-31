@@ -2,7 +2,9 @@
 
 %% mylib: mylib library's entry point.
 
--export([dna_count/1, fib/1, quick/1, dna_to_rna/1, dna_to_rna_opt/1, dna/1]).
+-export([dna_count/1, dna_to_rna/1, dna_to_rna_opt/1, dna/1, complement/1]).
+-export([quick/1]).
+-export([fib/1]).
 
 %% API
 
@@ -62,6 +64,12 @@ dtr([H|T], Acc) ->
     true -> dtr(T, [$U|Acc]);
     false -> dtr(T, [H|Acc])
   end.
+
+% The Secondary and Tertiary Structures of DNA
+complement(Dna) ->
+  Symbols = maps:from_list(lists:zip("ATCG", "TAGC")),
+  [maps:get(X, Symbols) || X <- lists:reverse(Dna)].
+
 
 %% Internals
 
