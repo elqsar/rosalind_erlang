@@ -31,3 +31,7 @@ dna_to_rna_test() ->
 secondary_and_terteriary_test() ->
   ?assertEqual(rosalind:complement("AAAACCCGGT"), "ACCGGGTTTT"),
   ?assertEqual(rosalind:complement("GTCA"), "TGAC").
+
+rabit_recurrence_test() ->
+  ?assertEqual(rosalind:rabit_recurrence(5, 3), 19),
+  ?assertEqual(rosalind:rabit_recurrence(36, 3), 3048504677680).

@@ -4,7 +4,7 @@
 
 -export([dna_count/1, dna_to_rna/1, dna_to_rna_opt/1, dna/1, complement/1]).
 -export([quick/1]).
--export([fib/1]).
+-export([fib/1, rabit_recurrence/2]).
 
 %% API
 
@@ -69,6 +69,15 @@ dtr([H|T], Acc) ->
 complement(Dna) ->
   Symbols = maps:from_list(lists:zip("ATCG", "TAGC")),
   [maps:get(X, Symbols) || X <- lists:reverse(Dna)].
+
+% Rabbits and Recurrence Relations
+rabit_recurrence(N, K) ->
+  rabit_recurrence({1, 1}, N - 1, K).
+
+rabit_recurrence({_A, B}, 1, _K) -> B;
+rabit_recurrence({A, B}, N, K) ->
+  rabit_recurrence({B, A * K + B}, N - 1, K).
+
 
 
 %% Internals
