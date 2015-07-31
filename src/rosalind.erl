@@ -71,12 +71,12 @@ complement(Dna) ->
   [maps:get(X, Symbols) || X <- lists:reverse(Dna)].
 
 % Rabbits and Recurrence Relations
-rabit_recurrence(N, K) ->
-  rabit_recurrence({1, 1}, N - 1, K).
+rabit_recurrence(Month, Reproduction) ->
+  rabit_recurrence({1, 1}, Month - 1, Reproduction).
 
-rabit_recurrence({_A, B}, 1, _K) -> B;
-rabit_recurrence({A, B}, N, K) ->
-  rabit_recurrence({B, A * K + B}, N - 1, K).
+rabit_recurrence({_A, B}, 1, _Reproduction) -> B;
+rabit_recurrence({A, B}, Month, Reproduction) ->
+  rabit_recurrence({B, A * Reproduction + B}, Month - 1, Reproduction).
 
 
 
