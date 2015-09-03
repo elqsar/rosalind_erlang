@@ -35,3 +35,12 @@ secondary_and_terteriary_test() ->
 rabit_recurrence_test() ->
   ?assertEqual(rosalind:rabit_recurrence(5, 3), 19),
   ?assertEqual(rosalind:rabit_recurrence(36, 3), 3048504677680).
+
+gc_content_test() ->
+  ?assertEqual(rosalind:gc_content("AGCTATAG"), 0.375).
+
+hamming_test() ->
+  ?assertEqual(rosalind:hamming("GAGCCTACTAACGGGAT", "CATCGTAATGACGGCCT"), 7).
+
+hamming2_test() ->
+  ?assertEqual(rosalind:hamming2("GAGCCTACTAACGGGAT", "CATCGTAATGACGGCCT"), 7).

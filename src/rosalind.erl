@@ -2,8 +2,9 @@
 
 %% mylib: mylib library's entry point.
 
--export([dna_count/1, dna_to_rna/1, dna_to_rna_opt/1, dna/1, complement/1]).
+-export([dna_count/1, dna_to_rna/1, dna_to_rna_opt/1, dna/1, complement/1, gc_content/1]).
 -export([quick/1]).
+-export([hamming/2, hamming2/2]).
 -export([fib/1, rabit_recurrence/2]).
 
 %% API
@@ -77,6 +78,23 @@ rabit_recurrence(Month, Reproduction) ->
 rabit_recurrence({_A, B}, 1, _Reproduction) -> B;
 rabit_recurrence({A, B}, Month, Reproduction) ->
   rabit_recurrence({B, A * Reproduction + B}, Month - 1, Reproduction).
+
+gc_content(Dna) ->
+  {Result, _} = lists:partition(fun(X) -> (X == $C) or (X == $G) end, Dna),
+  length(Result) / length(Dna).
+
+hamming(First, Second) ->
+  hamming(First, Second, 0).
+
+hamming([], [], Acc) -> Acc;
+hamming([H|T], [H1|T2], Acc) ->
+  case H =/= H1 of
+    true -> hamming(T, T2, Acc + 1);
+    false -> hamming(T, T2, Acc)
+  end.
+
+hamming2(First, Second) ->
+  length([X || {X, Y} <- lists:zip(First, Second), X =/= Y]).
 
 
 
